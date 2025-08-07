@@ -10,11 +10,30 @@ services:
       - .:/app
     environment:
       - MONGO_URL=mongodb://mongo:27017
+      - CELERY_BROKER_URL=redis://redis:6379/0
     depends_on:
       - mongo
+      - redis
 
   mongo:
     image: mongo
     container_name: mongodb
     ports:
       - "27017:27017"
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  worker:
+    build: .
+    container_name: celery_worker
+    command: celery -A app.workers.celery_worker worker --loglevel=info
+    depends_on:
+      - api
+      - redis
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - CELERY_BROKER_URL=redis://redis:6379/0

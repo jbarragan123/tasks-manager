@@ -13,7 +13,7 @@ class TaskCreate(BaseModel):
     description: Optional[str] = Field(None, example="Complete the technical test")
     status: Optional[TaskStatus] = Field(TaskStatus.pending, example="pending")
     assigned_to: Optional[str] = Field(None, example="john@example.com")
-    due_date: Optional[datetime] = Field(None, example="2025-08-08")
+    due_date: Optional[datetime] = Field(None, example="2025-08-07 11:45")
 
 class TaskInDB(TaskCreate):
     id: str = Field(..., alias="_id")
@@ -23,7 +23,7 @@ class TaskUpdate(BaseModel):
     description: Optional[str] = Field(None, example="Complete the technical test")
     status: Optional[TaskStatus] = Field(None, example="completed")
     assigned_to: Optional[str] = Field(None, example="john@example.com")
-    due_date: Optional[datetime] = Field(None, example="2025-08-08")
+    due_date: Optional[datetime] = Field(None, example="2025-08-07 11:45")
 
 class TaskResponse(TaskCreate):
     id: str
