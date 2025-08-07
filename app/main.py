@@ -3,7 +3,7 @@ from app.routes import task_routes
 
 app = FastAPI()
 
-# Registrar las rutas de tareas
+# Routes
 app.include_router(task_routes.router)
 
 @app.get("/")
