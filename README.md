@@ -116,3 +116,8 @@ Deberías ver algo como:
 ## 📬 Comentarios
 
 Si tienes alguna duda o error al momento de correr el proyecto no dudes en notificarme, mi correo es orionmaster8@gmail.com, respondo instantaneamente o a mi whatsapp 3125291007
+
+## 🧑‍💻 Author
+
+**Juan Barragán**  
+[GitHub Profile](https://github.com/jbarragan123)
