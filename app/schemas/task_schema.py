@@ -19,10 +19,11 @@ class TaskInDB(TaskCreate):
     id: str = Field(..., alias="_id")
 
 class TaskUpdate(BaseModel):
-    title: str = Field(..., example="Finish project")
+    title: Optional[str] = Field(None, example="Finish project")
     description: Optional[str] = Field(None, example="Complete the technical test")
-    status: Optional[str] = Field(example="completed")
+    status: Optional[TaskStatus] = Field(None, example="completed")
     assigned_to: Optional[str] = Field(None, example="john@example.com")
+    due_date: Optional[datetime] = Field(None, example="2025-08-08")
 
 class TaskResponse(TaskCreate):
     id: str
